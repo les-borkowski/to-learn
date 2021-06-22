@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Codystar&family=Knewave&family=Shadows+Into+Light+Two&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  font-family: "Shadows Into Light Two", sans-serif;
+  /* background-color: #eee; */
+  width: 400px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.container h1,
+h2 {
+  margin: 0;
+}
+
+.header {
+  background-color: #3273a8;
+  color: #fff;
+  padding: 10px;
+  letter-spacing: 2px;
+  font-size: 20px;
+  /* transform: skewY(-7deg); */
+}
+
+.timer {
+  margin-top: 5px;
+  background-color: #fff;
+  /* transform: skewY(-7deg); */
+  font-family: "Codystar", sans-serif;
+  color: #d15656;
+  font-size: 40px;
+}
+
+.timer-select {
+  margin-top: 5px;
+  background-color: #d15656;
+  color: #fff;
+  /* transform: skewY(-7deg); */
+  padding: 5px;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  font-family: 'Shadows Into Light Two', sans-serif;
+  cursor: pointer;
+}
+
+
+.info {
+  margin-top: 5px;
+  background-color: #fff;
+  padding: 5px 10px;
+  /* transform: skewY(-7deg); */
+  text-align: right;
+
+}
+
+/* .text {}
+.author {} */
