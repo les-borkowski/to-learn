@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=S, initial-scale=1.0">
+  <meta name="viewport" content="initial-scale=1.0">
   <title>Stopwatch app</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -13,26 +14,45 @@
 <div class="container">
 
   <div class="stopwatch">
-    <h2>Stopwatch</h2>
+    
     <div class="timer" id="timer">
-      
+  </div>
+    
+  <div class="controls">
+     
+    <div class="btn-cont" id="btnStart">
+      <i class="far fa-play-circle icon"></i>
+      <button class="btn">Start</button>
+    </div>
+
+    <div class="btn-cont" id="btnStop">
+      <i class="far fa-stop-circle icon "></i>
+      <button class="btn">Stop</button>
+    </div>
+
+    <div class="btn-cont" id="btnReset">
+      <i class="fas fa-redo icon"></i>
+      <button class="btn">Reset</button>
+    </div>
+
+    <div class="btn-cont" id="btnLap">
+      <i class="far fa-dot-circle icon"></i>
+      <button class="btn">Lap</button>
     </div>
     
-    <div class="controls">
-      <button id="btnStart">Start</button>
-      <button id="btnStop">Stop</button>
-      <button id="btnReset">Reset</button>
-      <button id="btnLap">Lap</button>
-    </div>
-    <div>
+  </div>
+    
+  <div>
     <div class="lap-times">
       <ul id="lapTimesList" class="laps-list">
         
       </ul>
     </div>
+
     <div class="lap-reset-btn">
-      <button id="btnLapsReset">Laps Reset</button>
+      <button id="btnLapsReset" class="btn">Lap History Reset</button>
     </div>
+
     </div>
   </div>
 
