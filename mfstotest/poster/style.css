@@ -1,0 +1,111 @@
+/* blue #1182c9
+ red #fb112d
+ black #191a15
+ background #fce8db*/
+
+ /* original dimensions 35x50cm */
+
+ @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: gray;
+
+}
+
+ .grid-container{
+   
+  max-width: 700px;
+  margin-top: 10px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(10, 70px);
+  grid-template-rows: repeat(14, 70px);
+  background-color: #fce8db;
+  font-family: 'Roboto';
+   
+ }
+
+ .box-blue {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 4;
+  grid-row-end: 10;
+  background-color: #1182c9;
+
+  width: inherit;
+  height: inherit;
+ }
+
+ .box-white {
+  grid-column: 5;
+  
+  grid-row-start: 4;
+  grid-row-end: 10;
+  background-color: white;
+  width: 95px;
+  height: inherit;
+  position: relative;
+ }
+.box-white-side {
+  display: unset;
+  position: absolute;
+  bottom: 0px;
+  left: 95px;
+  width: 160px;
+  height: inherit;
+  background-color: #191a15;
+  transform: translateY 80px;
+  transform: skew(0deg, 40deg);
+  z-index: 2;
+}
+.box-white-bottom{
+  background-color: #191a15;
+}
+
+ .box-black {
+  grid-column-start: 5;
+  grid-column-end: 8;
+  grid-row-start: 4;
+  grid-row-end: 10;
+  background-color: #191a15;
+  width: inherit;
+  height: inherit;
+}
+ .box-red {
+  grid-column-start: 8;
+  grid-column-end: 11;
+  grid-row-start: 4;
+  grid-row-end: 10;
+  background-color: #fb112d;
+  width: inherit;
+  height: inherit;
+ }
+ 
+
+ .text-left {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row: 10;
+ }
+ .text-right {
+  grid-column-start: 7;
+  grid-column-end: 10;
+  grid-row: 10;
+ }
+
+ h1 {
+   padding-left: 35px;
+   font-size: 45px;
+   line-height: 0.95em;
+   margin-top: 30px;
+   margin-bottom: 0;
+ }
+
+ p{
+   padding-left: 30px;
+   font-size: 15px;
+   font-weight: normal;
+ }
