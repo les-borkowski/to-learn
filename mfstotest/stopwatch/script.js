@@ -1,4 +1,5 @@
-const SAMPLE_LAPTIMES = ["0:59:24:00", "0:58:49:04", "1:28:45:98", "1:08:37:65"];
+// sample laps array
+// const SAMPLE_LAPTIMES = ["0:59:24:00", "0:58:49:04", "1:28:45:98", "1:08:37:65"];
 
 //  DOM elements
 let stopwatch = document.getElementById('timer')
@@ -14,24 +15,34 @@ let lapTimesList = document.getElementById("lapTimesList")
 let lapTimesArray = [];
 localStorage["laps"] ? lapTimesArray = JSON.parse(localStorage["laps"]) : lapTimesArray = [];
 lapHistory(lapTimesArray);
-// define timer and check local storage for stred value
-let timer = 0;
-localStorage["timer"] ? timer = JSON.parse(localStorage["timer"]) : timer = 0;
+
+// define timer and check local storage for stored value
+let timerCount = 0;
+let lapInitialTimer = 0;
+localStorage["timer"] ? timerCount = JSON.parse(localStorage["timer"]) : timerCount = 0;
+
+// initialize display
+stopwatch.innerText = formatTimer(timerCount);
 
 // functions
-// TODO: this solution is not accurate
-
-let timerPass = setInterval(displayTimer, 10);
+let timerPass = setInterval(updateTimerCount, 10);
 let timerControl = false;
 
-// TODO: convert to format time only function
-function displayTimer () {
+function updateTimerCount() {
+  if (timerControl) {
+    timerCount++;
+    stopwatch.innerText = formatTimer(timerCount);
+  }
+}
+
+// format timer
+function formatTimer(time) {
 
   // convert values to h:m:s:cs
-  const h = Math.floor(timer / 360000) % 60;
-  const m = Math.floor(timer / 6000) % 60;
-  const s = Math.floor(timer / 100) % 60;
-  const cs = Math.floor(timer) % 100;
+  const h = Math.floor(time / 360000) % 60;
+  const m = Math.floor(time / 6000) % 60;
+  const s = Math.floor(time / 100) % 60;
+  const cs = Math.floor(time) % 100;
 
   // keep stopwatch formatting if number < 10
   let hours = h < 10 ? "0" + h : h;
@@ -39,49 +50,75 @@ function displayTimer () {
   let secs = s < 10 ? "0" + s : s;
   let centisecs = cs < 10 ? "0" + cs : cs;
 
-  stopwatch.innerText = `${hours}:${mins}:${secs}:${centisecs}`;
-
-  if (timerControl) {
-    timer++;
-  }
+  return `${hours}:${mins}:${secs}:${centisecs}`;
 };
-
-// TODO: add information about lap number -- Extra
-// TODO: limit info to last 10 laps only -- Extra
 
 // use SAMPLE_LAPTIMES for formatting and styling
 function lapHistory(lapsData) {  
+
+  let fastest = Math.min(...lapsData);
+  let slowest = Math.max(...lapsData);
+
   lapTimesList.innerHTML = lapsData
   .map((lap) => {
-   return (`<li>${lap}</li>`)
+    if (lap === fastest) {
+      return (`<li class="fastest">${formatTimer(lap)}</li>`)
+    } else if ((lap === slowest)) {
+      return (`<li class="slowest">${formatTimer(lap)}</li>`)
+    } else {
+      return (`<li>${formatTimer(lap)}</li>`)
+    } 
   }).join("")
 };
 
 // Stopwatch controls
 function startTimer() {
   timerControl = true;
+
+  // FOR ACCURACY TEST ONLY
+  initTime = getCurrTime();
 };
 
 // Save timer to local storage on stop
 function stopTimer() {
   timerControl = false;
-  localStorage["timer"] = JSON.stringify(timer);
+  localStorage["timer"] = JSON.stringify(timerCount);
+
+  // FOR ACCURACY TEST ONLY
+  stopTime = getCurrTime();
+  calaculatePassedTime();
+  initTime = stopTime;
+
 }
 // Reset timer and laps history
 function resetTimer() {
-  timer = 0;
+  timerCount = 0;
+  lapInitialTimer = 0;
+  stopwatch.innerText = formatTimer(timerCount);
   resetLapsHistory();
   // clear local storage
   localStorage.clear();
+
+  // FOR ACCURACY TEST ONLY
+  initTime = 0;
+  stopTime = 0;
+  totalPassedTime = 0;
+
 }
-// TODO: get time elapsed from last lap click or stop
+// get time elapsed from last lap click or stop
 // update laps array, save to local storage
 function getLapTime() {
-  // console.log(stopwatch.innerText)
-  if (timer !== 0) {
-  lapTimesArray.unshift(stopwatch.innerText);
-  lapHistory(lapTimesArray);
-  localStorage["laps"] = JSON.stringify(lapTimesArray);
+
+  if (timerCount !== 0) {
+    // get lap time
+    let lapTime = timerCount - lapInitialTimer;
+    lapInitialTimer = timerCount;
+    // update and store lap times array, unless laptime == 0
+    if (lapTime !== 0) {
+      lapTimesArray.unshift(lapTime);
+      lapHistory(lapTimesArray);
+      localStorage["laps"] = JSON.stringify(lapTimesArray);
+    }
   }
 };
 
@@ -92,12 +129,23 @@ function resetLapsHistory() {
   }
 };
 
-// temporary
+// FOR ACCURACY TEST ONLY
+
+let initTime = 0;
+let stopTime = 0;
+let totalPassedTime = 0;
+
 function getCurrTime() {
   let currentDate = new Date();
-  let timestamp = currentDate.getTime();
-  console.log(timestamp);
+  return currentDate.getTime();
+  
 };
+function calaculatePassedTime() {
+  let passedTime = (stopTime - initTime) / 10;
+  totalPassedTime += passedTime;
+  console.log("Timestamp difference: ", formatTimer(totalPassedTime));
+  console.log("App timer: ", formatTimer(timerCount));
+}
 
 
 // Event listeners

@@ -90,10 +90,18 @@ body {
  overflow: auto;
 }
 
+.fastest {
+  color: green;
+}
+
+.slowest {
+  color: red;
+}
+
 .btn {
-  background-color: var(--clr4);
-  color: var(--clr1);
-  border: none;
+  background-color: var(--clr1);
+  color: var(--clr5);
+  border: 1px solid var(--clr4);
   text-decoration: none;
   cursor: pointer;
   margin: 0 2px;
