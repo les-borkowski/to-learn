@@ -96,8 +96,7 @@
   line-height: 43px;
 }
 
-.text-left {
-  grid-column: 1;
+.text {
   font-size: 18px;
   font-weight: 500;
   position: absolute;
@@ -107,13 +106,9 @@
   line-height: 20px;
 }
 
-.text-right {
+.left {
+  grid-column: 1;
+}
+.right {
   grid-column: 3;
-  font-size: 18px;
-  font-weight: 500;
-  position: absolute;
-  top: 842px;
-  left: 31px;
-  letter-spacing: -1.5px;
-  line-height: 20px;
 }
