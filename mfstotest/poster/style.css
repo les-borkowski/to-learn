@@ -1,111 +1,119 @@
-/* blue #1182c9
- red #fb112d
- black #191a15
- background #fce8db*/
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500&display=swap');
+
+:root {
+  --bckgrnd: #e5e5dd;
+  --red: #e63611;
+  --blue: #1171c0;
+  --black: #11100e;
+}
 
  /* original dimensions 35x50cm */
 
- @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+ /* original font Gothic 725. I'm using Libre Franklin from google fonts here, as it looks quite similar */
 
-body{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  background-color: gray;
+ * {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+ }
 
-}
+ .main-container {
+   display: flex;
+   margin: auto;
+   width: 700px;
+   height: 1000px;
+   background-color: var(--bckgrnd);
+   /* background image for reference only */
+   /* background-image: url(poster.png);
+   background-size: cover; */
+   font-family: 'Libre Franklin';
+   color: var(--black);
+ }
 
- .grid-container{
-   
-  max-width: 700px;
-  margin-top: 10px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(10, 70px);
-  grid-template-rows: repeat(14, 70px);
-  background-color: #fce8db;
-  font-family: 'Roboto';
-   
+ .grid-container {
+   display: grid;
+   grid-template-columns: 280px 215px 205px;
+   position: relative;
  }
 
  .box-blue {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 4;
-  grid-row-end: 10;
-  background-color: #1182c9;
-
-  width: inherit;
-  height: inherit;
+   grid-column: 1;
+   width: 280px;
+   height: 450px;
+   background-color: var(--blue);
+   position: absolute;
+   top: 220px;
  }
 
- .box-white {
-  grid-column: 5;
-  
-  grid-row-start: 4;
-  grid-row-end: 10;
-  background-color: white;
-  width: 95px;
-  height: inherit;
-  position: relative;
- }
-.box-white-side {
-  display: unset;
-  position: absolute;
-  bottom: 0px;
-  left: 95px;
-  width: 160px;
-  height: inherit;
-  background-color: #191a15;
-  transform: translateY 80px;
-  transform: skew(0deg, 40deg);
-  z-index: 2;
-}
-.box-white-bottom{
-  background-color: #191a15;
-}
-
- .box-black {
-  grid-column-start: 5;
-  grid-column-end: 8;
-  grid-row-start: 4;
-  grid-row-end: 10;
-  background-color: #191a15;
-  width: inherit;
-  height: inherit;
-}
  .box-red {
-  grid-column-start: 8;
-  grid-column-end: 11;
-  grid-row-start: 4;
-  grid-row-end: 10;
-  background-color: #fb112d;
-  width: inherit;
-  height: inherit;
- }
- 
-
- .text-left {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row: 10;
- }
- .text-right {
-  grid-column-start: 7;
-  grid-column-end: 10;
-  grid-row: 10;
+   grid-column: 3;
+   width: 205px;
+   height: 450px;
+   background-color: var(--red);
+   position: absolute;
+   top: 220px;
  }
 
- h1 {
-   padding-left: 35px;
-   font-size: 45px;
-   line-height: 0.95em;
-   margin-top: 30px;
-   margin-bottom: 0;
- }
+.box-mid {
+  grid-column: 2;
+  width: 88px;
+  height: 774px;
+  background-color: var(--bckgrnd);
+  position: absolute;
+  top: 5px;
+}
 
- p{
-   padding-left: 30px;
-   font-size: 15px;
-   font-weight: normal;
- }
+.box-mid-side {
+  grid-column: 2;
+  width: 127px;
+  height: 774px;
+  background-color: var(--black);
+  position: absolute;
+  left: 88px;
+  top: 108px;
+  transform: skewY(59.5deg);
+}
+
+.box-mid-bottom {
+  grid-column: 2;
+  width: 89px;
+  height: 216px;
+  background-color: var(--black);
+  position: absolute;
+  top: 774px;
+  left: 64px;
+  transform: skewX(30.5deg);
+}
+
+.text-title {
+  grid-column: 1;
+  font-size: 24px;
+  font-weight: 500;
+  position: absolute;
+  top: 700px;
+  left: 32px;
+  letter-spacing: -2px;
+  line-height: 43px;
+}
+
+.text-left {
+  grid-column: 1;
+  font-size: 18px;
+  font-weight: 500;
+  position: absolute;
+  top: 842px;
+  left: 31px;
+  letter-spacing: -1.5px;
+  line-height: 20px;
+}
+
+.text-right {
+  grid-column: 3;
+  font-size: 18px;
+  font-weight: 500;
+  position: absolute;
+  top: 842px;
+  left: 31px;
+  letter-spacing: -1.5px;
+  line-height: 20px;
+}
