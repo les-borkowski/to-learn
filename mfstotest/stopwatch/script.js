@@ -1,10 +1,10 @@
-// sample laps array
+// sample laps array for styling
 // const SAMPLE_LAPTIMES = ["0:59:24:00", "0:58:49:04", "1:28:45:98", "1:08:37:65"];
 
 //  DOM elements
 let stopwatch = document.getElementById('timer')
 let btnStart = document.getElementById('btnStart')
-let btnStop = document.getElementById('btnStop')
+let btnPause = document.getElementById('btnPause')
 let btnReset = document.getElementById('btnReset')
 let btnLap = document.getElementById('btnLap')
 let btnLapsReset = document.getElementById('btnLapsReset')
@@ -24,7 +24,7 @@ localStorage["timer"] ? timerCount = JSON.parse(localStorage["timer"]) : timerCo
 // initialize display
 stopwatch.innerText = formatTimer(timerCount);
 
-// functions
+//  stopwatch - update and display 
 let timerPass = setInterval(updateTimerCount, 10);
 let timerControl = false;
 
@@ -35,7 +35,7 @@ function updateTimerCount() {
   }
 }
 
-// format timer
+// format stopwatch display
 function formatTimer(time) {
 
   // convert values to h:m:s:cs
@@ -53,7 +53,7 @@ function formatTimer(time) {
   return `${hours}:${mins}:${secs}:${centisecs}`;
 };
 
-// use SAMPLE_LAPTIMES for formatting and styling
+// display laps from lap history array, indicate slowest and fastest
 function lapHistory(lapsData) {  
 
   let fastest = Math.min(...lapsData);
@@ -105,8 +105,7 @@ function resetTimer() {
   totalPassedTime = 0;
 
 }
-// get time elapsed from last lap click or stop
-// update laps array, save to local storage
+// get time elapsed from last lap click or a stop
 function getLapTime() {
 
   if (timerCount !== 0) {
@@ -121,7 +120,7 @@ function getLapTime() {
     }
   }
 };
-
+// reset laps history
 function resetLapsHistory() {
   if(!timerControl) {
     lapTimesArray = [];
@@ -150,7 +149,7 @@ function calaculatePassedTime() {
 
 // Event listeners
 btnStart.addEventListener('click', () => startTimer());
-btnStop.addEventListener('click', () => stopTimer());
+btnPause.addEventListener('click', () => stopTimer());
 btnReset.addEventListener('click', () => resetTimer());
 btnLap.addEventListener('click', () => getLapTime());
 btnLapsReset.addEventListener('click', () => resetLapsHistory());
