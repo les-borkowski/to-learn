@@ -16,13 +16,16 @@ Pressing *Reset* before closing the app window will clear any local storage writ
 *style.css* -- contains css styling
 *script.js* -- contains scripts and logic for the app
 
-#### Accuracy test
-Stopwatch includes function measuring accuracy using timestamps taken during starting and pausing. Data is printed to the console. Tests show its is accurate as long as the app is displayed and script is running.
+
+### Update 20/09/2021
+Logic updated. Stopwatch now measuring passed time based on timestamps instead of setInterval. Accuracy test not needed anymore.
+<!-- #### Accuracy test
+Stopwatch includes function measuring accuracy using timestamps taken during starting and pausing. Data is printed to the console. Tests show it is accurate as long as the app is displayed and script is running.
 
       *Timestamps difference:  00:04:26:82*
       *App timer:  00:04:26:80*
       *Timestamps difference:  00:10:01:33*
-      *App timer:  00:10:01:27*
+      *App timer:  00:10:01:27* -->
 
 
 
