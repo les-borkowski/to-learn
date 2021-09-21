@@ -10,6 +10,9 @@ let btnLap = document.getElementById('btnLap')
 let btnLapsReset = document.getElementById('btnLapsReset')
 let lapTimesList = document.getElementById("lapTimesList")
 
+// element.classList.add("className");
+
+
 // Intitial stopwatch values
 let initTime = 0;
 let stopTime = 0;
@@ -70,6 +73,8 @@ function startTimer() {
 
   timerControl = true;
   initTime = getCurrTime();
+  btnReset.classList.add("inactive");
+  btnLap.classList.remove("inactive");
 };
 
 // Stop timer and update local storage
@@ -82,22 +87,27 @@ function stopTimer() {
   lapInitialTimer = 0;
   
   initTime = stopTime;
+  btnReset.classList.remove("inactive");
+  btnLap.classList.add("inactive");
 }
 
 // Reset timer and laps history
 function resetTimer() {
   
-  timerControl = false;
-  initTime = 0;
-  stopTime = 0;
-  totalPassedTime = 0;
-  lapInitialTimer = 0;
-  stopwatch.innerText = formatTimer(totalPassedTime);
-  resetLapsHistory();
-  
-  // clear local storage
-  localStorage.clear();
+  if(!timerControl) {
+    initTime = 0;
+    stopTime = 0;
+    totalPassedTime = 0;
+    lapInitialTimer = 0;
+    stopwatch.innerText = formatTimer(totalPassedTime);
+    resetLapsHistory();
+    
+    // clear local storage
+    localStorage.clear();
+  }
 }
+
+
 
 // get time elapsed from last lap click or a stop
 function getLapTime() {
@@ -144,6 +154,8 @@ function calcPassedTime(startTime, stopTime) {
 //  stopwatch - update and display 
 let timerPass = setInterval(updateTimerCount, 10);
 let timerControl = false;
+
+
 
 function updateTimerCount() {
   // UPDATED FUNCTION HERE

@@ -112,3 +112,10 @@ body {
 .btn:hover {
   background-color: var(--clr3);
 }
+
+.inactive {
+  opacity: 50%;
+}
+.active {
+  opacity: 100%;
+}
