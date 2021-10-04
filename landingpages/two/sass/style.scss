@@ -1,0 +1,28 @@
+@use 'navbar.scss';
+@use 'mainhero.scss';
+@use 'moreinfo.scss';
+@use 'reviews.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.logotype {
+  font-family: 'Comfortaa', 'sans-serif';
+  color: aquamarine;
+  font-size: 2rem;
+}
+
+.store-btn {
+  background-color: slateblue;
+  color: #fff;
+  border-radius: 1rem;
+  height: 2rem;
+  padding: 1rem;
+
+}

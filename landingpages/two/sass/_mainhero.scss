@@ -1,0 +1,22 @@
+.mainhero{
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: -2;
+  position: relative;
+}
+
+.main-image-container {
+  background-color: darkslateblue;
+  width: 90vw;
+  height:  80vh;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// TODO: FULL WIDTH PICTURE WHEN WINDOW IS SMALL
