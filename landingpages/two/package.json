@@ -8,5 +8,8 @@
     "sass": "sass --watch sass/style.scss style.css"
   },
   "author": "Les Borkowski",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "unsplash-js": "^7.0.15"
+  }
 }

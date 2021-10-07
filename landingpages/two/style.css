@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap");
 .navbar-full-container {
@@ -172,26 +173,90 @@
   justify-content: center;
   z-index: -2;
   position: relative;
+  width: 100%;
 }
 
 .main-image-container {
-  background-color: darkslateblue;
-  width: 90vw;
+  width: 100%;
   height: 80vh;
-  border-radius: 1rem;
+  position: relative;
+  background-color: darkslateblue;
+  background-image: url("images/one.JPEG");
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
+.main-image-container::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  background-color: #000;
+  transition: opacity 0.5s ease;
+}
+
+.text-container {
+  position: relative;
+  top: 10rem;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 500px;
+}
+
+.text-container h1 {
+  margin-bottom: 1rem;
+}
+
+.btn-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: slateblue;
+  border-radius: 1rem;
+  height: 2rem;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 200px;
+  margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .mainhero {
+    height: 80vh;
+  }
+}
 .sub-image-container {
-  height: 100vh;
+  height: 80vh;
   background-color: darkseagreen;
+  background-image: url("images/waves.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.text-container {
+  z-index: 1;
+  padding: 0 2rem;
 }
 
 .reviews {
@@ -201,23 +266,222 @@
   justify-content: space-between;
   padding: 2rem;
   flex-wrap: wrap;
+  background-color: #eee;
 }
 
 .review-box {
+  min-width: 280px;
   height: 15vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid slategrey;
   border-radius: 1rem;
   padding: 1rem;
-  margin-bottom: 0.5rem;
+  font-family: "Roboto";
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 1000px) {
   .reviews {
     flex-direction: column;
+  }
+}
+.reviewTitleOne h3 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 3rem;
+}
+
+.reviewTitleTwo h3 {
+  font-family: "Secular One", sans-serif;
+  font-size: 3rem;
+}
+
+.reviewIcons {
+  font-size: 1.5rem;
+  color: gold;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2rem;
+}
+
+.feature-image {
+  background-image: url("images/undraw_Autumn_re_rwy0.svg");
+  background-position: center;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-color: #efefef;
+  min-width: 400px;
+  min-height: 400px;
+  border-radius: 1rem;
+}
+
+.feature-text {
+  min-width: 400px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  color: #555;
+  padding: 2rem;
+}
+
+.feature-text h2, p {
+  margin-bottom: 1rem;
+}
+
+.feature-text p, ul {
+  line-height: 1.5rem;
+}
+
+.feature-text ul {
+  padding-left: 1rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .feature {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.footer {
+  background-color: #000;
+  color: #ddd;
+  font-family: "Roboto", sans-serif;
+}
+
+.footer-links-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 2rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.footer-links-main {
+  padding: 2rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.footer-menu {
+  pointer-events: none;
+}
+
+.footer-menu-title {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-menu-icon {
+  visibility: hidden;
+}
+
+.footer-menu ul {
+  list-style: none;
+}
+
+.footer-menu li {
+  font-size: 0.9rem;
+  padding: 0.5rem;
+}
+
+.fab {
+  font-size: 2rem;
+  padding-left: 0.5rem;
+}
+
+.footer-menu-socials {
+  grid-column-start: 6;
+}
+
+.footer-copy {
+  background-color: #555;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 2rem;
+}
+
+.footer-copy-bottom {
+  display: flex;
+  flex-direction: row;
+}
+
+.footer-copy-bottom li {
+  display: inline-block;
+  padding-left: 0.5rem;
+  list-style: none;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .footer-links-main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .footer-menu {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #888;
+  }
+
+  .footer-menu-socials {
+    grid-column-start: 1;
+  }
+}
+@media (max-width: 600px) {
+  .footer-copy {
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .footer-links-top {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .footer-menu-icon {
+    visibility: visible;
+  }
+
+  .footer-menu {
+    padding-bottom: 1rem;
+    pointer-events: auto;
+  }
+
+  .footer-menu-socials {
+    padding-bottom: 1rem;
+    border-top: 1px solid #888;
+  }
+
+  .footer-links-main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-menu-title {
+    cursor: pointer;
+  }
+
+  .footer-menu-dropdown {
+    display: none;
+  }
+
+  .footer-menu-dropdown-active {
+    display: flex;
   }
 }
 * {
@@ -228,7 +492,8 @@
 
 .logotype {
   font-family: "Comfortaa", "sans-serif";
-  color: aquamarine;
+  font-weight: bold;
+  color: slateblue;
   font-size: 2rem;
 }
 

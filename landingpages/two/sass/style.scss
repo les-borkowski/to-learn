@@ -2,6 +2,8 @@
 @use 'mainhero.scss';
 @use 'moreinfo.scss';
 @use 'reviews.scss';
+@use 'feature.scss';
+@use 'footer.scss';
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap');
@@ -14,7 +16,8 @@
 
 .logotype {
   font-family: 'Comfortaa', 'sans-serif';
-  color: aquamarine;
+  font-weight: bold;
+  color: slateblue;
   font-size: 2rem;
 }
 
@@ -24,5 +27,5 @@
   border-radius: 1rem;
   height: 2rem;
   padding: 1rem;
-
 }
+

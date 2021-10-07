@@ -1,4 +1,4 @@
-// TODO: DISPLAY AS GRID
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 
 .reviews {
   display: flex;
@@ -7,23 +7,37 @@
   justify-content: space-between;
   padding: 2rem;
   flex-wrap: wrap;
+  background-color: #eee;
 }
 
 .review-box {
+  min-width: 280px;
   height: 15vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid slategrey;
   border-radius: 1rem;
   padding: 1rem;
-  margin-bottom: 0.5rem;
+  font-family: 'Roboto';
 
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 1000px) {
   .reviews {
     flex-direction: column;
   }
+}
+
+.reviewTitleOne h3 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 3rem;
+}
+.reviewTitleTwo h3 {
+  font-family: 'Secular One', sans-serif;
+  font-size: 3rem;
+}
+.reviewIcons {
+  font-size: 1.5rem;
+  color: gold;
 }

@@ -7,9 +7,34 @@ const navRespSubMenuBtn = document.getElementById('nav-resp-sub-menu-btn');
 const navRespSubMenuIcon = document.getElementById('nav-resp-menu-icon');
 const navLongMenuIcon = document.getElementById('nav-long-menu-icon');
 
+const heroContainer = document.getElementById('main-image-container');
 
 let isMenuOpen = false;
 let isSubMenuOpen = false;
+
+// SWAP HERO BACKGROUND IMAGES
+
+const IMAGES = [{'url': 'images/one.jpeg', 'alt': 'Greewich', 'author': 'LB'}, {'url': 'images/two.jpeg', 'alt': 'Forest', 'author': 'LB'}, {'url': 'images/three.jpeg', 'alt': 'Kuleje', 'author': 'LB'}];
+
+let count = 0;
+
+
+
+function loopPhotos() {
+  let index = count % IMAGES.length;
+  
+  heroContainer.style.backgroundImage = `url(${IMAGES[index].url})`;
+  
+  count++;
+}
+
+setInterval(() => {
+   
+  loopPhotos();
+  
+}, 10000);
+
+
 
 // LONG MENU OPEN
 function handleMouseEnter() {
@@ -56,8 +81,26 @@ function handleWindowResize() {
 }
 
 
+
+// FOOTER MENUS HANDLER
+
+function handleFooterMenu(element) {
+  let activeClass = "footer-menu-dropdown-active"
+
+  if (element.classList.contains(activeClass)) {
+    element.classList.remove(activeClass)
+  } else {
+    element.classList.add(activeClass)
+  }
+}
+
+
 subMenu.addEventListener('mouseover', handleMouseEnter);
 subNavbar.addEventListener('mouseout', handleMouseLeave);
 navRespMenuBtn.addEventListener('click', handleRespMenuOpen);
 navRespSubMenuBtn.addEventListener('click', handleRespSubMenuOpen);
 window.addEventListener('resize', handleWindowResize);
+
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.footer-menu').forEach(el => el.addEventListener('click', () => handleFooterMenu(el.querySelector('.footer-menu-dropdown'))))
+})
